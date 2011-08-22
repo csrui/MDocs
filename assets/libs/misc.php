@@ -28,7 +28,7 @@ function toc($folder) {
 	
 	$iterator = new DirectoryIterator($folder);
     foreach ($iterator as $fileinfo) {
-        if ($fileinfo->isFile()) {
+        if ($fileinfo->isFile() && $fileinfo->getExtension() == 'md') {
             $toc[$fileinfo->getMTime()] = substr($fileinfo->getFilename(), 0, -3);
         }
     }
